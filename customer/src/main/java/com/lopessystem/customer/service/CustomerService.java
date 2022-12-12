@@ -24,6 +24,7 @@ public class CustomerService {
 
         // TODO check if email valid
         // TODO check if email not taken
-        // TODO store customer in db
+        
+        customerRepository.save(customer);
     }
 }
