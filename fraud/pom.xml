@@ -15,6 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <lopessystem.clients.version>1.0-SNAPSHOT</lopessystem.clients.version>
     </properties>
 
     <dependencies>
@@ -34,6 +35,12 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.lopessystem</groupId>
+            <artifactId>clients</artifactId>
+            <version>${lopessystem.clients.version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

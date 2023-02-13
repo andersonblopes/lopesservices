@@ -3,12 +3,16 @@ package com.lopessystem.customer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * The type Customer application.
  */
 @SpringBootApplication
 @EnableEurekaClient
+@EnableFeignClients(
+        basePackages = "com.lopessystem.clients"
+)
 public class CustomerApplication {
 
     /**

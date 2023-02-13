@@ -1,4 +1,4 @@
-package com.lopessystem.customer.dto;
+package com.lopessystem.clients;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,14 +7,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * The type Fraud check history response.
+ * The type Fraud check response.
  */
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class FraudCheckHistoryResponse {
+public class FraudCheckResponse {
 
     /**
      * The Is fraudster.
