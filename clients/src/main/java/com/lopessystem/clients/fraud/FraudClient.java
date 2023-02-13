@@ -1,5 +1,6 @@
-package com.lopessystem.clients;
+package com.lopessystem.clients.fraud;
 
+import com.lopessystem.clients.FraudCheckResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

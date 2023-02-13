@@ -1,7 +1,7 @@
 package com.lopessystem.customer.service;
 
 import com.lopessystem.clients.FraudCheckResponse;
-import com.lopessystem.clients.FraudClient;
+import com.lopessystem.clients.fraud.FraudClient;
 import com.lopessystem.customer.dto.CustomerRegistrationRequest;
 import com.lopessystem.customer.model.Customer;
 import com.lopessystem.customer.repository.CustomerRepository;
