@@ -1,4 +1,4 @@
-package com.lopessystem.fraud.dto;
+package com.lopessystem.customer.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
