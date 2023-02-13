@@ -1,13 +1,13 @@
-package com.lopessystem.customer;
+package com.lopessystem.fraud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * The type Customer application.
+ * The type Fraud application.
  */
 @SpringBootApplication
-public class CustomerApplication {
+public class FraudApplication {
 
     /**
      * The entry point of application.
@@ -15,6 +15,6 @@ public class CustomerApplication {
      * @param args the input arguments
      */
     public static void main(String[] args) {
-        SpringApplication.run(CustomerApplication.class, args);
+        SpringApplication.run(FraudApplication.class, args);
     }
 }
