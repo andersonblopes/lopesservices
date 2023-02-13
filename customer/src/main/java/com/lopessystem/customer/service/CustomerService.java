@@ -7,13 +7,24 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+/**
+ * The type Customer service.
+ */
 @Slf4j
 @RequiredArgsConstructor
 @Service
 public class CustomerService {
 
+    /**
+     * The Customer repository.
+     */
     private final CustomerRepository customerRepository;
 
+    /**
+     * Register customer.
+     *
+     * @param request the request
+     */
     public void registerCustomer(CustomerRegistrationRequest request) {
 
         Customer customer = Customer.builder()
@@ -24,7 +35,7 @@ public class CustomerService {
 
         // TODO check if email valid
         // TODO check if email not taken
-        
+
         customerRepository.save(customer);
     }
 }
