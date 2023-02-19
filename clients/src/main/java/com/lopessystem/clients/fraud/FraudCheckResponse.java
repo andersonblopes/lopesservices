@@ -1,4 +1,4 @@
-package com.lopessystem.clients;
+package com.lopessystem.clients.fraud;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

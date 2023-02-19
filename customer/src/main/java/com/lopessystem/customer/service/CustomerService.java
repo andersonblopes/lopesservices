@@ -1,7 +1,9 @@
 package com.lopessystem.customer.service;
 
-import com.lopessystem.clients.FraudCheckResponse;
+import com.lopessystem.clients.fraud.FraudCheckResponse;
 import com.lopessystem.clients.fraud.FraudClient;
+import com.lopessystem.clients.notification.NotificationClient;
+import com.lopessystem.clients.notification.NotificationRequest;
 import com.lopessystem.customer.dto.CustomerRegistrationRequest;
 import com.lopessystem.customer.model.Customer;
 import com.lopessystem.customer.repository.CustomerRepository;
@@ -28,6 +30,11 @@ public class CustomerService {
     private final FraudClient fraudClient;
 
     /**
+     * The Notification client.
+     */
+    private final NotificationClient notificationClient;
+
+    /**
      * Register customer.
      *
      * @param request the request
@@ -50,6 +57,14 @@ public class CustomerService {
             throw new IllegalStateException("fraudster");
         }
 
-        // TODO send notification
+        // todo: make it async. i.e add to queue
+        notificationClient.sendNotification(
+                new NotificationRequest(
+                        customer.getId(),
+                        customer.getEmail(),
+                        String.format("Hi %s, welcome to lopes services...",
+                                customer.getFirstName())
+                )
+        );
     }
 }

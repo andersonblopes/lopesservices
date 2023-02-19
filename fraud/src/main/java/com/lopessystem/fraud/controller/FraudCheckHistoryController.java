@@ -1,6 +1,6 @@
 package com.lopessystem.fraud.controller;
 
-import com.lopessystem.clients.FraudCheckResponse;
+import com.lopessystem.clients.fraud.FraudCheckResponse;
 import com.lopessystem.fraud.service.FraudCheckHistoryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
