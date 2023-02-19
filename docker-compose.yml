@@ -1,4 +1,16 @@
 services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports:
+      - 8080:8080
+      - 50000:50000
+    container_name: jenkins
+    volumes:
+      - jenkins_home:/home/${myname}/jenkins_compose/jenkins_configuration:/var/jenkins_home
+      - jenkins_data:/var/run/docker.sock:/var/run/docker.sock
+
   postgres:
     container_name: postgres
     image: postgres
@@ -36,3 +48,5 @@ networks:
 volumes:
   postgres:
   pgadmin:
+  jenkins_data:
+  jenkins_home:
