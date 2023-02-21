@@ -34,6 +34,7 @@ public class FraudCheckHistoryController {
 
         log.debug("isFraudster");
         log.debug("customerId: {}", customerId);
+        log.info("isFraudster customerId: {}", customerId);
 
         Boolean isFraudulentCustomer = fraudCheckHistoryService.isFraudulentCustomer(customerId);
 
