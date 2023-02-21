@@ -1,15 +1,18 @@
 services:
   jenkins:
+    container_name: jenkins
     image: jenkins/jenkins:lts
     privileged: true
     user: root
     ports:
       - 8080:8080
       - 50000:50000
-    container_name: jenkins
     volumes:
       - jenkins_home:/home/${myname}/jenkins_compose/jenkins_configuration:/var/jenkins_home
       - jenkins_data:/var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - docker
+    restart: unless-stopped
 
   postgres:
     container_name: postgres
@@ -23,7 +26,7 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - postgres
+      - docker
     restart: unless-stopped
 
   pgadmin:
@@ -38,11 +41,20 @@ services:
     ports:
       - "5050:80"
     networks:
-      - postgres
+      - docker
+    restart: unless-stopped
+
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - docker
     restart: unless-stopped
 
 networks:
-  postgres:
+  docker:
     driver: bridge
 
 volumes:
