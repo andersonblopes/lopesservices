@@ -1,8 +1,8 @@
 package com.lopessystem.customer.service;
 
+import com.lopessystem.amqp.RabbitMQMessageProducer;
 import com.lopessystem.clients.fraud.FraudCheckResponse;
 import com.lopessystem.clients.fraud.FraudClient;
-import com.lopessystem.clients.notification.NotificationClient;
 import com.lopessystem.clients.notification.NotificationRequest;
 import com.lopessystem.customer.dto.CustomerRegistrationRequest;
 import com.lopessystem.customer.model.Customer;
@@ -30,9 +30,9 @@ public class CustomerService {
     private final FraudClient fraudClient;
 
     /**
-     * The Notification client.
+     * The Rabbit mq message producer.
      */
-    private final NotificationClient notificationClient;
+    private final RabbitMQMessageProducer rabbitMQMessageProducer;
 
     /**
      * Register customer.
@@ -57,14 +57,12 @@ public class CustomerService {
             throw new IllegalStateException("fraudster");
         }
 
-        // todo: make it async. i.e add to queue
-        notificationClient.sendNotification(
-                new NotificationRequest(
-                        customer.getId(),
-                        customer.getEmail(),
-                        String.format("Hi %s, welcome to lopes services...",
-                                customer.getFirstName())
-                )
+        NotificationRequest payload = new NotificationRequest(
+                customer.getId(),
+                customer.getEmail(),
+                String.format("Hi %s, welcome to lopes services...",
+                        customer.getFirstName())
         );
+        rabbitMQMessageProducer.publish(payload, "internal.exchange", "internal.notification.routing.key");
     }
 }

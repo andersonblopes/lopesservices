@@ -8,7 +8,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * The type Customer application.
  */
-@SpringBootApplication
+@SpringBootApplication(
+        scanBasePackages = {
+                "com.lopessystem.customer",
+                "com.lopessystem.amqp"
+        }
+)
 @EnableEurekaClient
 @EnableFeignClients(
         basePackages = "com.lopessystem.clients"
