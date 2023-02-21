@@ -5,6 +5,8 @@ spring:
     name: notification
   zipkin:
     base-url: ${ZIPKIN_SERVER_URL:http://localhost}:${ZIPKIN_SERVER_PORT:9411}
+  rabbitmq:
+    addresses: ${RABBITMQ_SERVER_URL:localhost}:${RABBITMQ_SERVER_PORT:5672}
   datasource:
     username: ${NOTIFICATION_DB_USERNAME:postgres}
     password: ${NOTIFICATION_DB_PASSWORD:root}
