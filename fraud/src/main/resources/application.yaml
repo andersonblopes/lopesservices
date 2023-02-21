@@ -1,0 +1,26 @@
+server:
+  port: ${MS_FRAUD_SERVER_PORT:7002}
+spring:
+  application:
+    name: fraud
+  zipkin:
+    base-url: ${ZIPKIN_SERVER_URL:http://localhost}:${ZIPKIN_SERVER_PORT:9411}
+  datasource:
+    username: ${FRAUD_DB_USERNAME:postgres}
+    password: ${FRAUD_DB_PASSWORD:root}
+    url: jdbc:postgresql://${FRAUD_DB_SERVER_URL:localhost}:${FRAUD_DB_SERVER_PORT:5432}/fraud
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          format_sql: true
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost}:${EUREKA_SERVER_PORT:8761}/eureka
