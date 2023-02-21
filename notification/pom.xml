@@ -16,6 +16,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <lopessystem.clients.version>1.0-SNAPSHOT</lopessystem.clients.version>
+        <lopessystem.amqp.version>1.0-SNAPSHOT</lopessystem.amqp.version>
     </properties>
 
     <dependencies>
@@ -38,6 +39,15 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.lopessystem</groupId>
+            <artifactId>amqp</artifactId>
+            <version>${lopessystem.amqp.version}</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>

@@ -12,10 +12,11 @@
     <name>lopesservices</name>
     <url>https://lopessystem.com/</url>
     <modules>
+        <module>clients</module>
+        <module>amqp</module>
         <module>customer</module>
         <module>fraud</module>
         <module>eureka-server</module>
-        <module>clients</module>
         <module>notification</module>
         <module>apigw</module>
     </modules>
