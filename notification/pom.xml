@@ -12,6 +12,25 @@
     <packaging>jar</packaging>
     <artifactId>notification</artifactId>
 
+    <properties>
+        <lopessystem.clients.version>1.0-SNAPSHOT</lopessystem.clients.version>
+        <lopessystem.amqp.version>1.0-SNAPSHOT</lopessystem.amqp.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>build-docker-image</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.google.cloud.tools</groupId>
+                        <artifactId>jib-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
@@ -20,11 +39,6 @@
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-        <lopessystem.clients.version>1.0-SNAPSHOT</lopessystem.clients.version>
-        <lopessystem.amqp.version>1.0-SNAPSHOT</lopessystem.amqp.version>
-    </properties>
 
     <dependencies>
         <dependency>
