@@ -6,14 +6,13 @@ node{
     stage('Compile-Package'){
         // get maven home path
         def mavenHome = tool name: 'maven-3', type: 'maven'
-        sh "${mavenHome}/bin/mvn clean package"
+        sh "${mavenHome}/bin/mvn package"
     }
 
     stage('SonarQube Analysis') {
       def mavenHome = tool name: 'maven-3', type: 'maven'
       withSonarQubeEnv("sonarqube-10") {
-        "${mavenHome}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=lopesservices -Dsonar.projectName='lopesservices'"
-        //sh "${scannerHome}/bin/sonar-scanner"
+        "${mavenHome}/bin/mvn sonar:sonar"
       }
     }
 }
