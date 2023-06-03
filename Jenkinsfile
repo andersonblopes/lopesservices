@@ -4,6 +4,8 @@ node{
     }
 
     stage('Compile-Package'){
-        sh 'mvn clean package'
+        // get maven home path
+        def mavenHome = tool name: 'maven-3', type: 'maven'
+        sh "${mavenHome}/bin/mvn clean package"
     }
 }
