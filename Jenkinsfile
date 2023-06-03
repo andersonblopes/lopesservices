@@ -8,4 +8,10 @@ node{
         def mavenHome = tool name: 'maven-3', type: 'maven'
         sh "${mavenHome}/bin/mvn clean package"
     }
+    stage('SonarQube analysis') {
+        def mavenHome = tool name: 'maven-3', type: 'maven'
+        withSonarQubeEnv('sonarqube-10') { // If you have configured more than one global server connection, you can specify its name
+          sh "${scannerHome}/bin/sonar-scanner"
+        }
+      }
 }
