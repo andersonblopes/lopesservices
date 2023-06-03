@@ -1,6 +1,6 @@
 node{
     stage('SCM checkout'){
-        git 'https://github.com/andersonblopes/lopesservices'
+        git branch: 'main', credentialsId: 'github', url: 'https://github.com/andersonblopes/lopesservices.git'
     }
 
     stage('Compile-Package'){
