@@ -12,7 +12,7 @@ node{
     stage('SonarQube Analysis') {
       def mvn = tool 'maven-3';
       //def scannerHome = tool 'sonarqube-10';
-      withSonarQubeEnv() {
+      withSonarQubeEnv("sonarqube-10") {
         "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=lopesservices -Dsonar.projectName='lopesservices'"
         //sh "${scannerHome}/bin/sonar-scanner"
       }
