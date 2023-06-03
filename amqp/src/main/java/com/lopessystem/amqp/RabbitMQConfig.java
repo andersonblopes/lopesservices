@@ -10,23 +10,12 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * The type Rabbit mq config.
- */
 @RequiredArgsConstructor
 @Configuration
 public class RabbitMQConfig {
 
-    /**
-     * The Connection factory.
-     */
     private final ConnectionFactory connectionFactory;
 
-    /**
-     * Amqp template amqp template.
-     *
-     * @return the amqp template
-     */
     @Bean
     public AmqpTemplate amqpTemplate() {
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
@@ -35,11 +24,6 @@ public class RabbitMQConfig {
         return rabbitTemplate;
     }
 
-    /**
-     * Simple rabbit listener container factory simple rabbit listener container factory.
-     *
-     * @return the simple rabbit listener container factory
-     */
     @Bean
     public SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory() {
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
@@ -49,11 +33,6 @@ public class RabbitMQConfig {
         return factory;
     }
 
-    /**
-     * Jackson converter message converter.
-     *
-     * @return the message converter
-     */
     @Bean
     public MessageConverter jacksonConverter() {
         return new Jackson2JsonMessageConverter();
